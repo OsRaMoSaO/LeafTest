@@ -1,0 +1,41 @@
+ <htmml>
+
+<head>
+    <title>Foxy tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        #map { height: 500px; width: 100%; }
+    </style>
+</head>
+
+
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+    
+        var map = L.map('map').setView([0, 0], 5);
+        var imageBounds = [[0, -0], [10, 10]];
+
+        L.tileLayer('https://www.vhv.rs/dpng/d/562-5626758_funtime-foxy-full-body-hd-png-download.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        L.imageOverlay('https://www.nicepng.com/png/full/352-3529364_funtime-foxy-custom-night-jumpscare-gif-by-fun.png', imageBounds, {
+            opacity: 0.8,
+            interactive: true
+        }).addTo(map);
+
+        L.marker([0, 0]).addTo(map)
+            .bindPopup('Spawn');
+
+        L.marker([5, 5]).addTo(map)
+            .bindPopup('Foksy');
+    </script>
+</body>
+
+ </htmml>
